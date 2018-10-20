@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 1</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style>
+		* {
+			margin: 10px;
+		}
+		body {
+			background: #fbf2e9;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+    <div class="form-group">
+		Enter your name (name can't contain digits):<br>
+		<input class="form-control" type="text" id="textbox">
+	</div>
+	</div>
+<script>
+	textbox.onkeypress = function(event) {
+        event = event || window.event;
+        if (event.charCode && event.charCode >= 48 && event.charCode <= 57)
+            return false;
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 3</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style>
+		body, html {
+			height: 100%;
+			background: url("field.jpg") center center no-repeat;;
+		}
+	</style>
+</head>
+<body>
+ <img src="ball.png" id="ball" style="position: absolute;">
+
+<script>
+	var posX =  Math.round(window.innerWidth/2 - ball.width/2);
+	var posY = Math.round(window.innerHeight/2 - ball.height/1.4);
+	window.onload = function f() {
+        bgSize();
+		setBallPos();
+        animationPos();
+	};
+
+	window.onresize = bgSize;
+	function bgSize() {
+        document.body.style.webkitBackgroundSize
+			= window.innerWidth + 'px ' + window.innerHeight + 'px';
+	}
+
+	var targetPosX = posX, targetPosY = posY;
+	window.onclick = function (event) {
+        targetPosX = event.clientX - ball.width/2;
+        targetPosY = event.clientY - ball.height/2;
+
+        //	alert(event.clientX + " " + event.clientY);
+    };
+
+    function setBallPos() {
+        ball.style.left = posX + 'px';
+        ball.style.top = posY + 'px';
+    }
+
+    function animationPos() {
+    	// check boundaries
+		
+	    if(posX <= 0 && targetPosX < posX ||
+		    posX + ball.width >= window.innerWidth && targetPosX > posX)
+		    targetPosX = posX, console.log("1");
+	    if(posY <= 0 && targetPosY < posY ||
+		    posY + ball.height+1 >= window.innerHeight && targetPosY > posY)
+		    targetPosY = posY, console.log("2");
+
+        if(posX != targetPosX)
+	        posX = targetPosX > posX ? posX + 1 : posX - 1, console.log("3");
+
+        if(posY != targetPosY)
+            posY = targetPosY > posY ? posY + 1 : posY - 1, console.log("4");
+
+
+	    setBallPos();
+        requestAnimationFrame(animationPos);
+    }
+</script>
+</body>
+</html>

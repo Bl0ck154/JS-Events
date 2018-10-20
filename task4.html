@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 4</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<style>
+		* {
+			margin: 10px;
+		}
+		body {
+			background: #fbf2e9;
+		}
+		.circle {
+			 width: 100px;
+			 height: 100px;
+			 background: gray;
+			 -moz-border-radius: 50px;
+			 -webkit-border-radius: 50px;
+			 border-radius: 50px;
+		 }
+	</style>
+</head>
+<body>
+<div class="container col-md-4">
+	<div class="row">
+
+			<div class="circle" id="c0"></div>
+			<div class="circle" id="c1"></div>
+			<div class="circle" id="c2"></div>
+		
+		<button onclick="next()" style="width: 100px">NEXT</button>
+	</div>
+</div>
+
+<script>
+	var colors = ["green", "yellow", "red"];
+	var numer = colors.length-1;
+	function next() {
+		document.getElementById("c" + numer).style.background = "gray";
+		numer = numer == colors.length-1 ? 0 : numer+1;
+		document.getElementById("c" + numer).style.background = colors[numer];
+	}
+</script>
+</body>
+</html>
